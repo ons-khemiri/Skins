@@ -1,0 +1,4 @@
+export const GET_COMMENTS="GET_COMMENTS";
+export const LOAD_COMMENTS="LOAD_COMMENTS";
+export const FAIL_COMMENTS="FAIL_COMMENTS";
+export const ADD_COMMENT="ADD_COMMENT";
