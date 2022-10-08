@@ -11,7 +11,7 @@ export const loginAdmin = (admin) => async (dispatch) => {
     catch (error) {
         dispatch({ type: FAIL_ADMIN, payload: error.response });
     }
-}
+};
 export const currentAdmin = () => async (dispatch) => {
 dispatch ({ type : LOAD_ADMIN})
 try {
@@ -26,17 +26,32 @@ try {
 catch (error) {
  dispatch({ type: FAIL_ADMIN, payload: error.response });
     }
-}
+};
 export const logoutAdmin = () => async (dispatch) => {
     dispatch ({ type : LOGOUT_ADMIN})
-}
+};
 export const getUsers = () => async (dispatch) => {
     dispatch ({type : LOAD_USERS})
     try {
-        let result = await axios.get('/api/admin/users')
+        let result = await axios.get('/api/admin/allusers')
         dispatch ({ type : GET_USERS, payload : result.data.listusers})
     } 
     catch (error) {
         dispatch({ type: FAIL_ADMIN, payload: error.response });
     }
-}
+};
+export const deleteUser = (id) => async (dispatch) => {
+    dispatch({ type: LOAD_USERS });
+     try {
+       const config = {
+         headers: {
+           authorization: localStorage.getItem("token"),
+         },
+       };
+       await axios.delete(`/api/admin/${id}`,config);
+       dispatch(getUsers());
+     } 
+     catch (error) {
+       dispatch({ type: FAIL_ADMIN, payload: error.response });
+    }
+   }; 

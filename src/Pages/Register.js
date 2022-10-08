@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap';
 import {FaFacebookF,FaGithub,FaGoogle,FaInstagram,FaTwitter} from "react-icons/fa";
 
 const Register=()=>{
-    const [newUser,setNewUser]=useState({})
+const [newUser,setNewUser]=useState({});
 const dispatch=useDispatch();
 const navigate=useNavigate();
 const handleChange=(e)=>{
@@ -15,7 +15,7 @@ const handleChange=(e)=>{
 const handleUser=(e)=>{
   e.preventDefault();
   dispatch(register(newUser));
-  navigate("/profile");
+  navigate("/");
 };
     return(
         <header style={{margin:"80px"}}>
@@ -33,8 +33,8 @@ const handleUser=(e)=>{
       Subscribe to our newsletter
     </label>
   </div>
-<Link to="/profile">
-<Button className="btn-register" variant="primary" type="submit" onClick={handleUser}>Sign up</Button>
+<Link to="/profile" className="d-grid gap-2">
+<Button variant="primary" onClick={handleUser} >Sign up</Button>
 </Link>
 <div class="text-center">
     <br/>

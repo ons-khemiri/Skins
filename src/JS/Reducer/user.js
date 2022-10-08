@@ -1,8 +1,7 @@
-import {CURRENT_USER,EDIT_USER,FAIL_USER,GET_USERS,LOAD_USER,LOGIN_USER,LOGOUT_USER,REGISTER_USER} from "../ActionTypes/user";
+import {CURRENT_USER,EDIT_USER,FAIL_USER,LOAD_USER,LOGIN_USER,LOGOUT_USER,REGISTER_USER} from "../ActionTypes/user";
 
 
 const initialState = {
-    users:[],
     user: null,
     loadUser: false,
     errors: null,
@@ -25,8 +24,8 @@ const initialState = {
              return {...state , user:payload , isAuth : true , loadUser : false}  
         case EDIT_USER:    
             return {...state , loadUser : false , user : payload.user, isAuth : true ,isAdmin: payload.user.isAdmin, isAgent: payload.user.isAgent }
-        case GET_USERS:
-            return { ...state, loadUser: false,users:payload }
+       // case GET_USERS:
+            //return { ...state, loadUser: false,listusers:payload }
         case LOGOUT_USER:
             localStorage.removeItem("token")
             return {

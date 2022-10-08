@@ -25,7 +25,8 @@ const adminReducer = ( state = InitialState , {type,payload}) => {
                 admin : null , 
                 load : false , 
                 errors: [] , 
-                isAdmin : false ,            
+                isAdmin : false , 
+                listusers : [],        
             }      
         case FAIL_ADMIN : 
             return {...state , load : false , errors : payload}            

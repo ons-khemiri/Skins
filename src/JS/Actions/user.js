@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CURRENT_USER, FAIL_USER, LOAD_USER,  LOGIN_USER, LOGOUT_USER, REGISTER_USER ,EDIT_USER, GET_USERS } from "../ActionTypes/user"
+import { CURRENT_USER, FAIL_USER, LOAD_USER,  LOGIN_USER, LOGOUT_USER, REGISTER_USER ,EDIT_USER } from "../ActionTypes/user";
 
 
 export const register = (newUser) => async (dispatch) => {
@@ -21,7 +21,7 @@ export const register = (newUser) => async (dispatch) => {
       dispatch({ type: FAIL_USER, payload: error.response.data.errors });
     }
   };
-  export const current = () => async (dispatch) => {
+  export const current_user = () => async (dispatch) => {
     dispatch({ type: LOAD_USER });
     try {
       const config = {
@@ -45,20 +45,7 @@ export const register = (newUser) => async (dispatch) => {
     dispatch ({type : FAIL_USER , payload : error.response.data.errors})
   }
 };
-export const getUsers = () => async (dispatch) => {
-    dispatch({ type: LOAD_USER });
-    try {
-      const config = {
-        headers: {
-        authorization: localStorage.getItem("token"),
-        }
-      }
-      let result = await axios.get("/api/user/allUsers",config);
-      dispatch({ type: GET_USERS, payload: result.data });
-    } catch (error) {
-      dispatch({ type: FAIL_USER, payload:error.response.data.errors });
-    }
-  };
+
   export const logout = () => (dispatch) => {
     dispatch({ type: LOGOUT_USER });
    };

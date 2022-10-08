@@ -15,7 +15,7 @@ const Login=()=> {
     setUser({...user,[e.target.name]: e.target.value});
     setAdmin({ ...admin, [e.target.name]: e.target.value });
   };
-  const handleUser=(e)=>{
+  const handleUser =(e)=>{
     e.preventDefault();
     dispatch(login(user));
     navigate("/profile");
@@ -37,8 +37,8 @@ const Login=()=> {
       <a href="#!">Forgot password?</a>
     </div>
   </div>
-<Link to="/profile">
-<Button class="btn btn-primary btn-block mb-4" type="submit" onClick={handleUser}>Sign in</Button>
+<Link to="/profile" className="d-grid gap-2">
+<Button  variant="primary" onClick={handleUser}>Sign in</Button>
 </Link>
 <div class="text-center">
     <br/>

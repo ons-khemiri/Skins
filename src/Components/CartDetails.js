@@ -14,7 +14,7 @@ const handleDelteProduct =()=>{
       <img className="img-responsive" src={cart_item.imageURL} alt="img" />
     </div>
     <div className="col-xs-4 col-md-6">
-      <h4 className="product-name"><strong>{cart_item.name}</strong></h4><h5><small>{cart_item.ref}</small></h5>
+      <h4 className="product-name"><strong>{cart_item.name}</strong></h4>
     </div>
     <div className="col-xs-4 col-md-6">
     <h5><small>{cart_item.description}</small></h5>

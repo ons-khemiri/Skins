@@ -4,34 +4,22 @@ import { useDispatch } from "react-redux";
 import { deleteOrder } from "../JS/Actions/order";
 
 
-const OrderCard = ({ newOrder }) => {
+const OrderCard = ({ order }) => {
   const dispatch = useDispatch();
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteOrder(newOrder._id));
+    dispatch(deleteOrder(order._id));
   };
   return (
     <div>
       <div className="messageCards">
-        <Card>
+        <Card style={{marginBottom:"20px"}}>
           <Card.Body>
-            <Card.Text>
-              <span className="forms">Product :</span>
-              {newOrder.productname}
-            </Card.Text>
-            <Card.Text>
-              <span className="forms">E-mail :</span>
-              {newOrder.email}
-            </Card.Text>
-            <Card.Text>
-              <span className="forms">Phone :</span>
-              {newOrder.phone}
-            </Card.Text>
-            <Card.Text>
-              <span className="forms">Adress :</span>
-              {newOrder.adress}
-            </Card.Text>
-<Button variant="danger" onClick={handleDelete}>Delete the order</Button>
+        <Card.Text><span className="forms">Product :</span>{order.productname}</Card.Text>
+        <Card.Text><span className="forms">E-mail :</span>{order.email}</Card.Text>
+        <Card.Text><span className="forms">Phone :</span>{order.phone}</Card.Text>
+        <Card.Text><span className="forms">Adress :</span>{order.adresse}</Card.Text>
+         <Button variant="danger" onClick={handleDelete}>Delete the order</Button>
           </Card.Body>
         </Card>
       </div>

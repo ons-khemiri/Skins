@@ -20,13 +20,13 @@ export const addComment = (newComment) => async (dispatch) => {
         },
       };
       await axios.post("/api/comment/addComment", newComment,config);
-      dispatch({type:ADD_COMMENT,payload:result.data});
+      dispatch({type:ADD_COMMENT});
     }
     catch (error) {
         dispatch({ type: FAIL_COMMENTS, payload: error.response });
       }
     };
-export const editCommentt = (id, newComment) => async (dispatch) => {
+export const editComment = (id, newComment) => async (dispatch) => {
         dispatch({ type: LOAD_COMMENTS });
         try {
           const config = {
@@ -34,7 +34,7 @@ export const editCommentt = (id, newComment) => async (dispatch) => {
               authorization: localStorage.getItem("token"),
             },
           };
-          await axios.put(`/api/comment/editComment/${id}`, newComment,config);
+          await axios.put(`/api/comment/${id}`, newComment,config);
           dispatch(getComments());
         } 
         catch (error) {
@@ -49,7 +49,7 @@ export const deleteComment = (id) => async (dispatch) => {
               authorization: localStorage.getItem("token"),
             },
           };
-          await axios.delete(`/api/comment/deleteComment/${id}`,config);
+          await axios.delete(`/api/comment/${id}`,config);
           dispatch(getComments());
         } 
         catch (error) {

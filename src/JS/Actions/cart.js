@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ADD_CART, CURRENT_CART, FAIL_CART, LOAD_CART } from "../ActionTypes/cart";
 
-export const addCart = (user_id,product_id) => async (dispatch) => {
+export const addToCart = (user_id,product_id) => async (dispatch) => {
     dispatch({ type: LOAD_CART });
     try {
         const result=await axios.get(`/api/cart/${user_id}/${product_id}`)
@@ -20,7 +20,7 @@ export const current_cart = () => async (dispatch) => {
           authorization: localStorage.getItem("token"),
         },
       };
-      let result = await axios.get("/api/cart/", config);
+      let result = await axios.get("/api/cart", config);
       dispatch({ type: CURRENT_CART, payload: result.data });
     } 
     catch (error) {

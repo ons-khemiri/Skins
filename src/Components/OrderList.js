@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import ProductCard from "./ProductCard";
+import OrderCard from "./OrderCard";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../JS/Actions/product";
+import {  getOrders } from "../JS/Actions/order";
 import { Spinner } from "react-bootstrap";
 
-const ProductList = () => {
+const OrderList = () => {
   const dispatch = useDispatch();
-  const listProducts = useSelector((state) => state.productReducer.listProducts);
-  const load = useSelector((state) => state.productReducer.load);
+  const listOrders = useSelector((state) => state.orderReducer.listOrders);
+  const load = useSelector((state) => state.orderReducer.load);
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getOrders());
   }, [dispatch]);
 return (
     <div>
@@ -17,10 +17,10 @@ return (
 <div style={{  display: "flex", flexWrap: "wrap", justifyContent: "space-around", textAlign: "center", }}>
         {load ? (
           <Spinner animation="grow" variant="secondary" />
-        ) : (listProducts.map((el) => <ProductCard product={el} key={el._id}/>))}
+        ) : (listOrders.map((el) => <OrderCard order={el} key={el._id}/>))}
       </div>
     </div>
   );
 };
 
-export default ProductList;
+export default OrderList;

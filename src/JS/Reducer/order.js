@@ -15,7 +15,7 @@ const orderReducer = (state = initialState, { type, payload }) => {
         case LOAD_ORDERS:
             return { ...state, load: true };
         case FAIL_ORDERS:
-            return { ...state,load: false, errors: payload };
+            return { ...state,load: false, errors: payload };    
         default:
             return state;
             }

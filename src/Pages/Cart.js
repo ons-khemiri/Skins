@@ -23,26 +23,22 @@ const HandleEmptyCart=()=>{
   dispatch(emptyCart(user._id))
   }
 return (
- <div className="cart">
-<div className="card-header bg-dark text-light">
- <a href="/" className="btn btn-outline-info btn-sm pull-right"> Continue shopping </a>
- <Button variant="outline-danger" onClick={HandleEmptyCart}  style={{marginLeft:"15px"}} className="btn btn-outline-info btn-sm pull-right" >
+ <header className="cart" >
+<div className="card-header  text-light" style={{backgroundColor:"pink"}}>
+ <a href="/" className="btn btn-info btn-sm pull-right"> Continue shopping </a>
+ <Button variant="warning" onClick={HandleEmptyCart}  style={{marginLeft:"15px"}} className="btn btn-info btn-sm pull-right" >
  Empty Cart
     </Button>
         </div>
         <div className="card-body">
-      {loading?(<Spinner animation="grow" variant="secondary" />):( cartItems.reverse()
+        {loading?(<Spinner animation="border" variant="secondary" />):( cartItems.reverse()
             .map((el) => <CartDetails cart_item={el} key={el.id} />))}
         </div>
-        <div className="card-footer">
-          <a href={cartItems.length?`/order/${total}`:null} className="btn btn-success pull-right">
-            confirm order
-          </a>
+      
           <div className="pull-right" style={{ margin: "5px" }}>
             Total: <b>{total} $</b>
           </div>
-        </div>
-      </div>
+        </header>
    );
 };
 

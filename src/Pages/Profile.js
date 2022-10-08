@@ -12,6 +12,7 @@ return (
   {isAuth ? (
   <div className="profile">
   <div>
+ <br/>
  <Card style={{ width: '14rem' }}>
       <Card.Img variant="top" src="https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png" />
       <Card.Body>
